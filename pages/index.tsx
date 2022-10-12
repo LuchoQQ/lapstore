@@ -14,8 +14,8 @@ import type { Product, Filter } from "../types";
 import ProductCard from "./components/ProductCard";
 import Header from "./components/Header";
 import { useMemo, useState } from "react";
-import PriceFilter from "./components/categories/CPU_Fabricant";
-import CPU_Fabricant from "./components/categories/CPU_Fabricant";
+import PriceFilter from "./components/categories/cpu_fabricant._filter";
+import CPU_Fabricant from "./components/categories/cpu_fabricant._filter";
 type Props = {
   products: Product[];
 };
@@ -95,7 +95,7 @@ const Home: NextPage<Props> = ({ products }) => {
           </Flex>
         </Flex>
 
-        <Flex flexWrap="wrap" gap="2rem" justifyContent='center'>
+        <Flex flexWrap="wrap" gap="2rem" justifyContent="center" w="70vw">
           {matches.map((product, index) => {
             return (
               <>

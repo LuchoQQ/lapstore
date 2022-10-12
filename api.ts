@@ -64,6 +64,20 @@ const PRODUCTS: Product[] = [
         storage: "256GB SSD",
         memory: "4GB 2x4 2500MHz DDR4",
         screen: '14'
+    },
+    {
+        id: 6,
+        title: 'NOTEBOOK HP 14" ZBOOK FIREFLY G8 I7-1165G7 16GB 512GB W10P',
+        price: 449.160,
+        image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665596416/lapstore/notebook-hp-14-zbook-firefly-g8-i71165g7-16gb-512gb-w10p-0_cffusr.jpg',
+        cpu_fabricant: 'Intel',
+        trademark: 'HP',
+        processor: 'i7-1165G7',
+        graphics: 'NVIDIA GeForce T500',
+        storage: '512GB SSD',
+        memory: '16GB 1x16 DDR4 2666 MHz',
+        screen: '14'
+
     }
 
 ]
