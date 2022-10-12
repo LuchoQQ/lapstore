@@ -1,11 +1,16 @@
 export type Product = {
-    id: number;
-    name: string;
-    image: string;
-    color: string;
-    price: number;
-    currency: string;
-    releaseDate: string;
-    categoryId: number;
-    rating: number;
+    id: number,
+    title: string,
+    price: number,
+    image: string,
+    trademark: string,
+    cpu_fabricant: string,
+    processor: string,
+    graphics: string,
+    storage: string,
+    memory: string,
+    screen: string
 }
+
+
+export type Filter = null | ((product: Product) => boolean);
