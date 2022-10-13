@@ -32,7 +32,6 @@ const cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
     setSelected(draft);
   };
 
-  useEffect(() => {}, [selected]);
   return (
     <>
       <Flex flexDir="column" p="1rem" border="1px solid black">

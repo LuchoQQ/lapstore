@@ -9,6 +9,7 @@ export type Product = {
     graphics: string,
     storage: string,
     memory: string,
+    memory_description: string
     screen: string
 }
 

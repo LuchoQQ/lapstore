@@ -1,3 +1,4 @@
+import { m } from 'framer-motion';
 import type { Product } from './types'
 const PRODUCTS: Product[] = [
     {
@@ -10,7 +11,8 @@ const PRODUCTS: Product[] = [
         processor: "INTEL CORE i5-1135G7",
         graphics: "Intel® Iris® Xe graphics",
         storage: "M.2 256GB PCIe NVMe",
-        memory: "8GB 1x8 3200MHz DDR4 Non-ECC",
+        memory: "8GB",
+        memory_description: '1x8 3200MHz DDR4 Non-ECC',
         screen: '15.6'
     },
     {
@@ -23,7 +25,8 @@ const PRODUCTS: Product[] = [
         processor: "AMD Ryzen 5 5500U",
         graphics: "Radeon RX Vega 11",
         storage: "256GB SSD",
-        memory: "8GB 1x8 3200MHz DDR4",
+        memory: "8GB",
+        memory_description: '1x8 3200MHz DDR4',
         screen: '15.6'
     },
     {
@@ -36,7 +39,8 @@ const PRODUCTS: Product[] = [
         processor: "INTEL CORE I7-1165G7",
         graphics: "Intel Integrated Graphics",
         storage: "512GB SSD",
-        memory: "8GB 1x8 2666MHz DDR4",
+        memory: "8GB",
+        memory_description: '1x8 2666MHz DDR4',
         screen: '15.6'
     },
     {
@@ -49,7 +53,8 @@ const PRODUCTS: Product[] = [
         processor: "i5-1135G7",
         graphics: "Intel UHD Graphics",
         storage: "256GB SSD M.2 PCI-E NVME",
-        memory: "8GB 1x8 2666MHz DDR4",
+        memory: "8GB",
+        memory_description: '1x8 2666MHz DDR4',
         screen: '15.6'
     },
     {
@@ -62,7 +67,8 @@ const PRODUCTS: Product[] = [
         processor: 'RYZEN 3 3250U',
         graphics: 'Radeon RX Vega 3',
         storage: "256GB SSD",
-        memory: "4GB 2x4 2500MHz DDR4",
+        memory: "8GB",
+        memory_description: '2x4 2500MHz DDR4',
         screen: '14'
     },
     {
@@ -75,7 +81,8 @@ const PRODUCTS: Product[] = [
         processor: 'i7-1165G7',
         graphics: 'NVIDIA GeForce T500',
         storage: '512GB SSD',
-        memory: '16GB 1x16 DDR4 2666 MHz',
+        memory: '16GB',
+        memory_description: '1x16 DDR4 2666 MHz',
         screen: '14'
 
     }

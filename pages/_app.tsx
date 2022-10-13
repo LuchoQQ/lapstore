@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "../styles/global.css";
 import "@fontsource/merriweather-sans";
+import Header from "./components/Header";
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = extendTheme({
     fonts: {
@@ -13,7 +14,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <Header />
+        <Component {...pageProps}></Component>
       </ChakraProvider>
     </>
   );
