@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
   return (
     <>
       <Grid w="100%" h="100vh" bg="#9fbded">
-        <Flex w="100%" mt="auto" mb="auto" justifyContent="center" px="5rem">
+        <Flex w="100%" mt="auto" mb="auto" justifyContent="center" position='relative' zIndex='100' px="5rem">
           <Grid mr="auto" alignSelf="center" justifyItems="center">
             <Text
               fontSize="5xl"
@@ -42,9 +42,10 @@ const HomePage: React.FC = () => {
               borderRadius="100px"
               justifyContent="center"
               alignContent="center"
+              cursor='pointer'
               boxShadow="0px 15px 40px 10px rgba(243,52,100,0.4)"
             >
-              <Text fontFamily={theme.fonts.primary} color="#fff">
+              <Text fontFamily={theme.fonts.primary} color="#fff" >
                 Ir a Tienda!
               </Text>
             </Flex>

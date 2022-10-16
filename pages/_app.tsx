@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
     colors: {
       primary: "#F33464",
+      secondary: '#33C2F2',
       background: '#9fbded'
     }
   });
