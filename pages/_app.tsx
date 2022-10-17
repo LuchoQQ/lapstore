@@ -5,6 +5,9 @@ import "@fontsource/merriweather-sans";
 import "@fontsource/poppins/700.css";
 import "@fontsource/roboto/700.css";
 import Header from "./components/Header";
+import { Provider } from "react-redux";
+import store from "../redux/index";
+
 function MyApp({ Component, pageProps }: AppProps) {
   const theme = extendTheme({
     fonts: {
@@ -14,17 +17,19 @@ function MyApp({ Component, pageProps }: AppProps) {
     },
     colors: {
       primary: "#F33464",
-      secondary: '#33C2F2',
-      background: '#9fbded'
-    }
+      secondary: "#33C2F2",
+      background: "#9fbded",
+    },
   });
 
   return (
     <>
-      <ChakraProvider theme={theme}>
-        <Header />
-        <Component {...pageProps}></Component>
-      </ChakraProvider>
+      <Provider store={store}>
+        <ChakraProvider theme={theme}>
+          <Header />
+          <Component {...pageProps}></Component>
+        </ChakraProvider>
+      </Provider>
     </>
   );
 }

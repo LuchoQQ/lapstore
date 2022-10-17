@@ -1,13 +1,34 @@
-import { Button, Flex, Image, Text, useTheme } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import {
+  Button,
+  Flex,
+  Image,
+  Text,
+  useTheme,
+  Icon,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Input,
+  Divider,
+  Grid,
+} from "@chakra-ui/react";
 import React from "react";
-import laptop from "../../public/laptop.png";
+import { useRouter } from "next/router";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCart } from "../../redux/reducers/cartSlice";
 type MapProps = {
   name: string;
   path: string;
 };
 
-const ComponentName: React.FC = () => {
+const Header: React.FC = () => {
+  const [isDrawerOpen, setDrawerOpen] = React.useState(false);
   const links = {
     Inicio: "/",
     Shop: "/shop",
@@ -17,10 +38,59 @@ const ComponentName: React.FC = () => {
 
   const theme = useTheme();
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+  const cart = useSelector(selectCart);
+  console.log(cart);
 
-  console.log(router.pathname);
   return (
     <>
+      <Drawer
+        isOpen={isDrawerOpen}
+        placement="right"
+        onClose={() => setDrawerOpen(false)}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Revisa tus compras</DrawerHeader>
+
+          <DrawerBody>
+            <Divider />
+            {cart.map((item) => {
+              return (
+                <>
+                  <Flex flexDir="column" alignItems="center" gap="1rem">
+                    <Flex>
+                      <Image src={item.image} w="100px" />
+                      <Grid>
+                        <Text fontSize="sm">{`${item.title.split(" ")[0]} ${
+                          item.title.split(" ")[1]
+                        } ${item.title.split(" ")[3]} ${
+                          item.title.split(" ")[4]
+                        }`}</Text>
+                        <Text fontSize="sm">{`$${item.price}`}</Text>
+                      </Grid>
+                    </Flex>
+                  </Flex>
+                  <Divider />
+                </>
+              );
+            })}
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button
+              variant="outline"
+              mr={3}
+              onClick={() => setDrawerOpen(false)}
+            >
+              Cancel
+            </Button>
+            <Button colorScheme="blue">Save</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
       <Flex
         w="100%"
         fontFamily={theme.fonts.primary}
@@ -55,27 +125,35 @@ const ComponentName: React.FC = () => {
             );
           })}
         </Flex>
-        <Flex
-          gap="1rem"
-          alignSelf="center"
-          px="1rem"
-          py="0.5rem"
-          borderRadius="100px"
-          border={`1px solid ${theme.colors.primary}`}
-          transition="all .2s ease"
-          role="group"
-          ml="auto"
-          _hover={{
-            bg: theme.colors.primary,
-          }}
-        >
-          <Text color="#202020" _groupHover={{ color: "#fff" }}>
-            Contact us
-          </Text>
+        <Flex ml="auto" gap="2rem">
+          <Icon
+            as={AiOutlineShoppingCart}
+            alignSelf="center"
+            fontSize="2xl"
+            onClick={() => setDrawerOpen(true)}
+          />
+          <Flex
+            gap="1rem"
+            alignSelf="center"
+            px="1rem"
+            py="0.5rem"
+            borderRadius="100px"
+            border={`1px solid ${theme.colors.primary}`}
+            transition="all .2s ease"
+            role="group"
+            ml="auto"
+            _hover={{
+              bg: theme.colors.primary,
+            }}
+          >
+            <Text color="#202020" _groupHover={{ color: "#fff" }}>
+              Contact us
+            </Text>
+          </Flex>
         </Flex>
       </Flex>
     </>
   );
 };
 
-export default ComponentName;
+export default Header;

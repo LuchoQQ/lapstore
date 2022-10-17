@@ -15,15 +15,17 @@
     "@fontsource/merriweather-sans": "^4.5.10",
     "@fontsource/poppins": "^4.5.10",
     "@fontsource/roboto": "^4.5.8",
+    "@reduxjs/toolkit": "^1.8.6",
     "framer-motion": "^6.5.1",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "react-redux": "^8.0.4"
   },
   "devDependencies": {
     "@types/node": "18.8.4",
-    "@types/react": "18.0.21",
+    "@types/react": "^18.0.21",
     "@types/react-dom": "18.0.6",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1",

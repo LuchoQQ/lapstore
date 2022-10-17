@@ -15,6 +15,13 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from "@chakra-ui/react";
 import type { NextPage, GetStaticProps } from "next";
 import api from "../api";
@@ -28,6 +35,7 @@ import Memory_filter from "./components/categories/memory_filter";
 import Graphics_filter from "./components/categories/graphics_filter";
 import Trademark_filter from "./components/categories/trademark_filter";
 import Price_filter from "./components/categories/price_filter";
+import DetailsModal from "./components/DetailsModal";
 type Props = {
   products: Product[];
 };
@@ -42,8 +50,22 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const Home: NextPage<Props> = ({ products }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [data, setData] = useState<Product>();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const [data, setData] = useState<Product>({
+    id: 0,
+    title: "",
+    price: 0,
+    trademark: "",
+    image: "",
+    cpu_fabricant: "",
+    processor: "",
+    graphics: "",
+    storage: "",
+    memory: "",
+    memory_description: "",
+    screen: "",
+  });
 
   const [filters, setFilters] = useState<Record<string, Filter>>({
     title: null,
@@ -69,23 +91,11 @@ const Home: NextPage<Props> = ({ products }) => {
   const theme = useTheme();
   return (
     <>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>{data?.title}</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Image src={data?.image} />
-            <Text></Text>
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <DetailsModal
+        data={data}
+        isModalOpen={isModalOpen}
+        setModalOpen={setModalOpen}
+      />
       <Box h="4.5rem"></Box>
       <Flex fontFamily={theme.fonts.primary} fontSize="sm" bg="#f3f4f5">
         <Flex
@@ -148,7 +158,7 @@ const Home: NextPage<Props> = ({ products }) => {
                 <ProductCard
                   product={product}
                   key={index}
-                  onOpen={onOpen}
+                  setModalOpen={setModalOpen}
                   setData={setData}
                 />
               </>

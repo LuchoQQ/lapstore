@@ -11,14 +11,19 @@ import {
 import React from "react";
 import { Product } from "../../types";
 import { BsCart4 } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/reducers/cartSlice";
+
 type Props = {
   product: Product;
-  onOpen: () => void;
-  setData: (value: object) => void;
+  setModalOpen: (value: boolean) => void;
+  setData: React.Dispatch<React.SetStateAction<Product>>;
 };
 
-const ProductCard: React.FC<Props> = ({ product, onOpen, setData }) => {
+const ProductCard: React.FC<Props> = ({ product, setModalOpen, setData }) => {
   const theme = useTheme();
+  const dispatch = useDispatch();
+
   return (
     <>
       <Grid flexDir="column" p=".5rem" maxW="250px" bg="#fff" maxH="500px">
@@ -51,6 +56,7 @@ const ProductCard: React.FC<Props> = ({ product, onOpen, setData }) => {
               alignItems="center"
               border={`2px solid ${theme.colors.secondary}`}
               cursor="pointer"
+              onClick={() => dispatch(addToCart(product))}
             >
               <Text>
                 <Icon as={BsCart4}></Icon> Agregar
@@ -67,7 +73,7 @@ const ProductCard: React.FC<Props> = ({ product, onOpen, setData }) => {
               cursor="pointer"
               onClick={() => {
                 setData(product);
-                onOpen();
+                setModalOpen(true);
               }}
             >
               <Text>Ver más</Text>
