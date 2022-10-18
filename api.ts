@@ -13,7 +13,8 @@ const PRODUCTS: Product[] = [
         storage: "M.2 256GB PCIe NVMe",
         memory: "8GB",
         memory_description: '1x8 3200MHz DDR4 Non-ECC',
-        screen: '15.6'
+        screen: '15.6',
+        quantity: 0
     },
     {
         id: 2,
@@ -27,7 +28,9 @@ const PRODUCTS: Product[] = [
         storage: "256GB SSD",
         memory: "8GB",
         memory_description: '1x8 3200MHz DDR4',
-        screen: '15.6'
+        screen: '15.6',
+        
+        quantity: 0
     },
     {
         id: 3,
@@ -41,7 +44,9 @@ const PRODUCTS: Product[] = [
         storage: "512GB SSD",
         memory: "8GB",
         memory_description: '1x8 2666MHz DDR4',
-        screen: '15.6'
+        screen: '15.6',
+        quantity: 0
+
     },
     {
         id: 4,
@@ -55,7 +60,9 @@ const PRODUCTS: Product[] = [
         storage: "256GB SSD M.2 PCI-E NVME",
         memory: "8GB",
         memory_description: '1x8 2666MHz DDR4',
-        screen: '15.6'
+        screen: '15.6',
+        quantity: 0
+
     },
     {
         id: 5,
@@ -69,7 +76,9 @@ const PRODUCTS: Product[] = [
         storage: "256GB SSD",
         memory: "8GB",
         memory_description: '2x4 2500MHz DDR4',
-        screen: '14'
+        screen: '14',
+        quantity: 0
+
     },
     {
         id: 6,
@@ -83,7 +92,9 @@ const PRODUCTS: Product[] = [
         storage: '512GB SSD',
         memory: '16GB',
         memory_description: '1x16 DDR4 2666 MHz',
-        screen: '14'
+        screen: '14',
+        quantity: 0
+
 
     }
 
