@@ -11,7 +11,7 @@ const cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
   const [selected, setSelected] = useState<Set<string>>(() => new Set());
 
   //filter logic
-  const cpu_fabricant = useMemo(() => {
+  const Cpu_fabricant = useMemo(() => {
     const buffer: Set<string> = new Set();
     for (let product of products) {
       buffer.add(product.cpu_fabricant);
@@ -36,7 +36,7 @@ const cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
     <>
       <Flex flexDir="column" p="1rem" border="1px solid black">
         <Text mb="1rem">Procesador</Text>
-        {cpu_fabricant.map((fabricant, index) => {
+        {Cpu_fabricant.map((fabricant, index) => {
           return (
             <>
               <Flex alignItems="center" gap=".5rem" key={index}>

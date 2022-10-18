@@ -57,7 +57,6 @@ const Header: React.FC = () => {
         justifyContent="center"
         zIndex={1000}
       >
-        <Text>LAPTECH</Text>
         <Flex gap="1rem" alignSelf="center" ml="auto">
           {Object.entries(links).map((props, index) => {
             return (
