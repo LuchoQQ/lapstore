@@ -65,6 +65,7 @@ const Home: NextPage<Props> = ({ products }) => {
     memory: "",
     memory_description: "",
     screen: "",
+    quantity: 0,
   });
 
   const [filters, setFilters] = useState<Record<string, Filter>>({
