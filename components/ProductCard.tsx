@@ -12,7 +12,7 @@ import React from "react";
 import { Product } from "../types";
 import { BsCart4 } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { addToCart, addToCartQuantity } from "../redux/reducers/cartSlice";
+import { addToCartQuantity } from "../redux/reducers/cartSlice";
 
 type Props = {
   product: Product;

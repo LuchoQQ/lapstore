@@ -25,15 +25,13 @@ type Props = {
 
 const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
   const theme = useTheme();
-  
+
   const cart = useSelector(selectCart);
 
-  /* const total = cart.reduce((acc, curr) => {
-    return acc + curr.price * curr.quantity;
+  const totalPrice = cart.reduce((acc, item) => {
+    return acc + item.price * item.quantity;
   }, 0);
-   */
 
-  /* console.log(total); */
   return (
     <Drawer
       isOpen={isDrawerOpen}
@@ -50,8 +48,13 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
           {cart.map((item) => {
             return (
               <>
-                <Flex flexDir="column" alignItems="center" gap="1rem" fontFamily={theme.fonts.primary} >
-                  <Flex fontSize='md'>
+                <Flex
+                  flexDir="column"
+                  alignItems="center"
+                  gap="1rem"
+                  fontFamily={theme.fonts.primary}
+                >
+                  <Flex fontSize="md">
                     x{item.quantity}
                     <Image src={item.image} w="100px" mr="auto" />
                     <Grid>
@@ -69,16 +72,20 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
             );
           })}
         </DrawerBody>
-        <Grid fontFamily={theme.fonts.primary} px='1rem'>
+        <Grid fontFamily={theme.fonts.primary} px="1rem">
           <Text>Cantidad de Productos: {}</Text>
-         {/*  <Text>Precio Total: {`$${total}`}</Text> */}
+          <Text>Precio Total: {`$${totalPrice}`}</Text>
         </Grid>
 
         <DrawerFooter>
           <Button variant="outline" mr={3} onClick={() => setDrawerOpen(false)}>
             Cancel
           </Button>
-          <Button colorScheme="blue">Save</Button>
+            <a href='https://wa.me/5403794913997?text=noseee'>
+          <Button colorScheme="green">
+              Wpp
+          </Button>
+            </a>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

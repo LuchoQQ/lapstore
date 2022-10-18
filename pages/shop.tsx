@@ -1,35 +1,14 @@
 import {
   Box,
-  Button,
   Flex,
-  Grid,
-  Image,
-  Input,
   Text,
   useTheme,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
 } from "@chakra-ui/react";
 import type { NextPage, GetStaticProps } from "next";
 import api from "../api";
 import type { Product, Filter } from "../types";
 import ProductCard from "../components/ProductCard";
-import Header from "../components/Header";
 import { useMemo, useState } from "react";
-import PriceFilter from "../components/categories/cpu_fabricant._filter";
 import CPU_Fabricant from "../components/categories/cpu_fabricant._filter";
 import Memory_filter from "../components/categories/memory_filter";
 import Graphics_filter from "../components/categories/graphics_filter"
