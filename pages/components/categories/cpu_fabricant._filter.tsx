@@ -7,7 +7,7 @@ type Props = {
   onChange: (filter: Filter) => void;
 };
 
-const cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
+const Cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
   const [selected, setSelected] = useState<Set<string>>(() => new Set());
 
   //filter logic
@@ -56,4 +56,4 @@ const cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
   );
 };
 
-export default cpu_fabricant_filter;
+export default Cpu_fabricant_filter;
