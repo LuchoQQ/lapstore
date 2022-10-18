@@ -1,6 +1,6 @@
 import { Checkbox, Flex, FormLabel, Input, Text } from "@chakra-ui/react";
 import React, { useEffect, useMemo, useState } from "react";
-import { Filter, Product } from "../../../types";
+import { Filter, Product } from "../../types";
 
 type Props = {
   products: Product[];

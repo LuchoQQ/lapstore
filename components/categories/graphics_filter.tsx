@@ -1,49 +1,48 @@
 import { Checkbox, Flex, Text } from "@chakra-ui/react";
 import React, { useMemo, useState } from "react";
-import { Filter, Product } from "../../../types";
+import { Filter, Product } from "../../types";
 
 type Props = {
   products: Product[];
   onChange: (filter: Filter) => void;
 };
 
-const Memory_filter: React.FC<Props> = ({ products, onChange }) => {
+const Graphics_filter: React.FC<Props> = ({ products, onChange }) => {
   const [selected, setSelected] = useState<Set<string>>(() => new Set());
 
-  const memories_filter = useMemo(() => {
+  const graphics_filter = useMemo(() => {
     const buffer: Set<string> = new Set();
     for (let product of products) {
-      buffer.add(product.memory);
+      buffer.add(product.graphics);
     }
     return Array.from(buffer);
-  }, [products]);
+  }, []);
 
-  const handleChange = (memory: string, isChecked: boolean) => {
+  const handleChange = (graphics_filter: string, isChecked: boolean) => {
     const draft = structuredClone(selected);
+
     if (isChecked) {
-      draft.add(memory);
+      draft.add(graphics_filter);
     } else {
-      draft.delete(memory);
+      draft.delete(graphics_filter);
     }
-    onChange(draft.size ? (product) => draft.has(product.memory) : null);
+    onChange(draft.size ? (product) => draft.has(product.graphics) : null);
     setSelected(draft);
   };
-
   return (
     <>
       <Flex id="ram" flexDir="column" p="1rem" border="1px solid black">
-        <Text mb="1rem">Memoria RAM</Text>
-        {memories_filter.map((memory) => {
+        {graphics_filter.map((graphics, index) => {
           return (
             <>
-              <Flex gap=".5rem">
+              <Flex alignItems="center"  key={index} gap=".5rem">
                 <Checkbox
                   type="checkbox"
-                  name="memory"
-                  value={memory}
-                  onChange={(e) => handleChange(memory, e.target.checked)}
+                  name="graphics"
+                  value={graphics}
+                  onChange={(e) => handleChange(graphics, e.target.checked)}
                 />
-                <Text fontSize="sm">{memory}</Text>
+                <Text fontSize="sm">{graphics}</Text>
               </Flex>
             </>
           );
@@ -53,4 +52,4 @@ const Memory_filter: React.FC<Props> = ({ products, onChange }) => {
   );
 };
 
-export default Memory_filter;
+export default Graphics_filter;

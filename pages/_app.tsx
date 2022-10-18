@@ -4,7 +4,7 @@ import "../styles/global.css";
 import "@fontsource/merriweather-sans";
 import "@fontsource/poppins/700.css";
 import "@fontsource/roboto/700.css";
-import Header from "./components/Header";
+import Header from "../components/Header";
 import { Provider } from "react-redux";
 import store from "../redux/index";
 

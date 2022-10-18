@@ -21,7 +21,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCart } from "../../redux/reducers/cartSlice";
+import { selectCart } from "../redux/reducers/cartSlice";
 import CartDrawer from "./CartDrawer";
 type MapProps = {
   name: string;

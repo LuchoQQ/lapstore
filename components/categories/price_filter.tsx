@@ -10,7 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { Filter } from "../../../types";
+import { Filter } from "../../types";
 
 type Props = {
   onChange: (filter: Filter) => void;

@@ -13,7 +13,7 @@ import {
   useTheme,
 } from "@chakra-ui/react";
 import React from "react";
-import { Product } from "../../types";
+import { Product } from "../types";
 
 type Props = {
   data: Product;

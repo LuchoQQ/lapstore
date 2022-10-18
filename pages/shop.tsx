@@ -26,16 +26,16 @@ import {
 import type { NextPage, GetStaticProps } from "next";
 import api from "../api";
 import type { Product, Filter } from "../types";
-import ProductCard from "./components/ProductCard";
-import Header from "./components/Header";
+import ProductCard from "../components/ProductCard";
+import Header from "../components/Header";
 import { useMemo, useState } from "react";
-import PriceFilter from "./components/categories/cpu_fabricant._filter";
-import CPU_Fabricant from "./components/categories/cpu_fabricant._filter";
-import Memory_filter from "./components/categories/memory_filter";
-import Graphics_filter from "./components/categories/graphics_filter";
-import Trademark_filter from "./components/categories/trademark_filter";
-import Price_filter from "./components/categories/price_filter";
-import DetailsModal from "./components/DetailsModal";
+import PriceFilter from "../components/categories/cpu_fabricant._filter";
+import CPU_Fabricant from "../components/categories/cpu_fabricant._filter";
+import Memory_filter from "../components/categories/memory_filter";
+import Graphics_filter from "../components/categories/graphics_filter"
+import Trademark_filter from "../components/categories/trademark_filter";
+import Price_filter from "../components/categories/price_filter";
+import DetailsModal from "../components/DetailsModal";
 type Props = {
   products: Product[];
 };

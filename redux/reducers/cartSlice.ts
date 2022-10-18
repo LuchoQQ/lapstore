@@ -21,7 +21,7 @@ const cartSlice = createSlice({
             // add 1 quantity to product if it already exists in cart
             const product = state.find(product => product.id === action.payload.id);
             if (product) {
-                product.quantity++;
+                //product.quantity++;
             } else {
                 state.push(action.payload);
             }

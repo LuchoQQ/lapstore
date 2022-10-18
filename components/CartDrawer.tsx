@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCart } from "../../redux/reducers/cartSlice";
+import { selectCart } from "../redux/reducers/cartSlice";
 
 type Props = {
   isDrawerOpen: boolean;
@@ -28,12 +28,12 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
   
   const cart = useSelector(selectCart);
 
-  const total = cart.reduce((acc, curr) => {
+  /* const total = cart.reduce((acc, curr) => {
     return acc + curr.price * curr.quantity;
   }, 0);
-  
+   */
 
-  console.log(total);
+  /* console.log(total); */
   return (
     <Drawer
       isOpen={isDrawerOpen}
@@ -71,7 +71,7 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
         </DrawerBody>
         <Grid fontFamily={theme.fonts.primary} px='1rem'>
           <Text>Cantidad de Productos: {}</Text>
-          <Text>Precio Total: {`$${total}`}</Text>
+         {/*  <Text>Precio Total: {`$${total}`}</Text> */}
         </Grid>
 
         <DrawerFooter>
