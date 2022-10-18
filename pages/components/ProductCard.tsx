@@ -12,7 +12,7 @@ import React from "react";
 import { Product } from "../../types";
 import { BsCart4 } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/reducers/cartSlice";
+import { addToCart, addToCartQuantity } from "../../redux/reducers/cartSlice";
 
 type Props = {
   product: Product;
@@ -56,7 +56,9 @@ const ProductCard: React.FC<Props> = ({ product, setModalOpen, setData }) => {
               alignItems="center"
               border={`2px solid ${theme.colors.secondary}`}
               cursor="pointer"
-              onClick={() => dispatch(addToCart(product))}
+              onClick={() =>
+                dispatch(addToCartQuantity({ ...product, quantity: 1 }))
+              }
             >
               <Text>
                 <Icon as={BsCart4}></Icon> Agregar

@@ -22,6 +22,7 @@ import { useRouter } from "next/router";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../../redux/reducers/cartSlice";
+import CartDrawer from "./CartDrawer";
 type MapProps = {
   name: string;
   path: string;
@@ -38,59 +39,11 @@ const Header: React.FC = () => {
 
   const theme = useTheme();
   const router = useRouter();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const dispatch = useDispatch();
   const cart = useSelector(selectCart);
-  console.log(cart);
 
   return (
     <>
-      <Drawer
-        isOpen={isDrawerOpen}
-        placement="right"
-        onClose={() => setDrawerOpen(false)}
-      >
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerCloseButton />
-          <DrawerHeader>Revisa tus compras</DrawerHeader>
-
-          <DrawerBody>
-            <Divider />
-            {cart.map((item) => {
-              return (
-                <>
-                  <Flex flexDir="column" alignItems="center" gap="1rem">
-                    <Flex>
-                      <Image src={item.image} w="100px" />
-                      <Grid>
-                        <Text fontSize="sm">{`${item.title.split(" ")[0]} ${
-                          item.title.split(" ")[1]
-                        } ${item.title.split(" ")[3]} ${
-                          item.title.split(" ")[4]
-                        }`}</Text>
-                        <Text fontSize="sm">{`$${item.price}`}</Text>
-                      </Grid>
-                    </Flex>
-                  </Flex>
-                  <Divider />
-                </>
-              );
-            })}
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button
-              variant="outline"
-              mr={3}
-              onClick={() => setDrawerOpen(false)}
-            >
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Save</Button>
-          </DrawerFooter>
-        </DrawerContent>
-      </Drawer>
+      <CartDrawer isDrawerOpen={isDrawerOpen} setDrawerOpen={setDrawerOpen} />
       <Flex
         w="100%"
         fontFamily={theme.fonts.primary}
@@ -126,12 +79,30 @@ const Header: React.FC = () => {
           })}
         </Flex>
         <Flex ml="auto" gap="2rem">
-          <Icon
-            as={AiOutlineShoppingCart}
-            alignSelf="center"
-            fontSize="2xl"
-            onClick={() => setDrawerOpen(true)}
-          />
+          <Flex>
+            <Icon
+              as={AiOutlineShoppingCart}
+              alignSelf="center"
+              fontSize="2xl"
+              onClick={() => setDrawerOpen(true)}
+              position="relative"
+            />
+            {cart.length > 0 && (
+              <Text
+                bg={theme.colors.primary}
+                color="#fff"
+                borderRadius="50%"
+                w="1.5rem"
+                h="1.5rem"
+                fontSize="xs"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                {cart.length}
+              </Text>
+            )}
+          </Flex>
           <Flex
             gap="1rem"
             alignSelf="center"

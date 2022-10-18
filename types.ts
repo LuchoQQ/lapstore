@@ -11,6 +11,7 @@ export type Product = {
     memory: string,
     memory_description: string
     screen: string
+    quantity: number
 }
 
 
