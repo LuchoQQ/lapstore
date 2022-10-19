@@ -1,9 +1,4 @@
-import {
-  Box,
-  Flex,
-  Text,
-  useTheme,
-} from "@chakra-ui/react";
+import { Box, Flex, Text, useTheme } from "@chakra-ui/react";
 import type { NextPage, GetStaticProps } from "next";
 import api from "../api";
 import type { Product, Filter } from "../types";
@@ -11,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 import { useMemo, useState } from "react";
 import CPU_Fabricant from "../components/categories/cpu_fabricant._filter";
 import Memory_filter from "../components/categories/memory_filter";
-import Graphics_filter from "../components/categories/graphics_filter"
+import Graphics_filter from "../components/categories/graphics_filter";
 import Trademark_filter from "../components/categories/trademark_filter";
 import Price_filter from "../components/categories/price_filter";
 import DetailsModal from "../components/DetailsModal";
@@ -80,6 +75,14 @@ const Home: NextPage<Props> = ({ products }) => {
       <Flex fontFamily={theme.fonts.primary} fontSize="sm" bg="#f3f4f5">
         <Flex
           bg="#fff"
+          position={[
+            "absolute",
+            "absolute",
+            "relative",
+            "relative",
+            "relative",
+          ]}
+          left={["-100vw", "-200px", "0px", "0px", "0px"]}
           flexDir="column"
           minW="300px"
           minH="100vh"
@@ -130,7 +133,7 @@ const Home: NextPage<Props> = ({ products }) => {
           flexWrap="wrap"
           gap="2rem"
           justifyContent="center"
-          w="70vw"
+          w={["90vw", "90vw", "70vw", "70vw", "70vw"]}
         >
           {matches.map((product, index) => {
             return (

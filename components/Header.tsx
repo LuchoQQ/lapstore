@@ -41,6 +41,10 @@ const Header: React.FC = () => {
   const router = useRouter();
   const cart = useSelector(selectCart);
 
+  const totalItems = cart.reduce((acc, item) => {
+    return acc + item.quantity;
+  }, 0);
+
   return (
     <>
       <CartDrawer isDrawerOpen={isDrawerOpen} setDrawerOpen={setDrawerOpen} />
@@ -98,7 +102,7 @@ const Header: React.FC = () => {
                 justifyContent="center"
                 alignItems="center"
               >
-                {cart.length}
+                {totalItems}
               </Text>
             )}
           </Flex>

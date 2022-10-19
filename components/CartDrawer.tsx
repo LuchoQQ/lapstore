@@ -10,11 +10,13 @@ import {
   DrawerOverlay,
   Flex,
   Grid,
+  Icon,
   Image,
   Text,
   useTheme,
 } from "@chakra-ui/react";
 import React from "react";
+import { RiWhatsappFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../redux/reducers/cartSlice";
 
@@ -30,6 +32,16 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
 
   const totalPrice = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
+  }, 0);
+
+  const cartItem: any = [];
+  const wppReturn = cart.map((item) => {
+    cartItem.push(
+      item.title + " - " + item.price + "ARS" + " x " + item.quantity
+    );
+  });
+  const totalItems = cart.reduce((acc, item) => {
+    return acc + item.quantity;
   }, 0);
 
   return (
@@ -73,7 +85,7 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
           })}
         </DrawerBody>
         <Grid fontFamily={theme.fonts.primary} px="1rem">
-          <Text>Cantidad de Productos: {}</Text>
+          <Text>Cantidad de Productos: {totalItems}</Text>
           <Text>Precio Total: {`$${totalPrice}`}</Text>
         </Grid>
 
@@ -81,11 +93,14 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
           <Button variant="outline" mr={3} onClick={() => setDrawerOpen(false)}>
             Cancel
           </Button>
-            <a href='https://wa.me/5403794913997?text=noseee'>
-          <Button colorScheme="green">
-              Wpp
-          </Button>
-            </a>
+          <a href={`https://wa.me/5403794913997?text=${cartItem}`}>
+            <Flex bg="#03BE39" py="0.5rem" px="1rem" rounded="5px">
+              <Icon as={RiWhatsappFill} alignSelf="center" />
+              <Flex justifyContent="center" alignContent="center">
+                <Text fontFamily={theme.fonts.primary}>Listo</Text>
+              </Flex>
+            </Flex>
+          </a>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>

@@ -14,6 +14,7 @@ const HomePage: React.FC = () => {
           position="relative"
           zIndex="100"
           px="5rem"
+          flexDir="column"
         >
           <Grid mr="auto" alignSelf="center" justifyItems="center">
             <Text
