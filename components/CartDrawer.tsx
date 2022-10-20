@@ -18,7 +18,8 @@ import {
 import React from "react";
 import { RiWhatsappFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCart } from "../redux/reducers/cartSlice";
+import { deleteToCartQuantity, selectCart } from "../redux/reducers/cartSlice";
+import { BsTrash } from "react-icons/bs";
 
 type Props = {
   isDrawerOpen: boolean;
@@ -27,8 +28,8 @@ type Props = {
 
 const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
   const theme = useTheme();
-
   const cart = useSelector(selectCart);
+  const dispatch = useDispatch();
 
   const totalPrice = cart.reduce((acc, item) => {
     return acc + item.price * item.quantity;
@@ -77,6 +78,13 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
                       }`}</Text>
                       <Text fontSize="sm">{`$${item.price}`}</Text>
                     </Grid>
+                    <Icon
+                      as={BsTrash}
+                      mt="0.5rem"
+                      onClick={() => {
+                        dispatch(deleteToCartQuantity(item));
+                      }}
+                    />
                   </Flex>
                 </Flex>
                 <Divider />
@@ -89,19 +97,26 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
           <Text>Precio Total: {`$${totalPrice}`}</Text>
         </Grid>
 
-        <DrawerFooter>
-          <Button variant="outline" mr={3} onClick={() => setDrawerOpen(false)}>
-            Cancel
-          </Button>
+        <Flex mt="1rem" mb="2rem" justifyContent="center" gap="2rem">
+          <Flex
+            bg="#f3f4f5"
+            py="0.5rem"
+            px="1rem"
+            rounded="5px"
+            onClick={() => setDrawerOpen(false)}
+            cursor="pointer"
+          >
+            <Text fontFamily={theme.fonts.primary}>Cancelar</Text>
+          </Flex>
           <a href={`https://wa.me/5403794913997?text=${cartItem}`}>
-            <Flex bg="#03BE39" py="0.5rem" px="1rem" rounded="5px">
-              <Icon as={RiWhatsappFill} alignSelf="center" />
+            <Flex bg="#f3f4f5" py="0.5rem" px="1rem" rounded="5px">
+              <Icon as={RiWhatsappFill} alignSelf="center" fill="green" />
               <Flex justifyContent="center" alignContent="center">
-                <Text fontFamily={theme.fonts.primary}>Listo</Text>
+                <Text fontFamily={theme.fonts.primary}>{` Comprar`}</Text>
               </Flex>
             </Flex>
           </a>
-        </DrawerFooter>
+        </Flex>
       </DrawerContent>
     </Drawer>
   );

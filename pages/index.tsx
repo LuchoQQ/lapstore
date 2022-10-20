@@ -7,14 +7,15 @@ const HomePage: React.FC = () => {
     <>
       <Grid w="100%" h="100vh" bg="#9fbded">
         <Flex
-          w="100%"
+          maxW="100vw"
           mt="auto"
           mb="auto"
           justifyContent="center"
           position="relative"
           zIndex="100"
-          px="5rem"
-          flexDir="column"
+          px={["2rem","5rem"]}
+          alignItems='center'
+          flexDir={["column", "column", "row", "row", "row"]}
         >
           <Grid mr="auto" alignSelf="center" justifyItems="center">
             <Text
@@ -62,6 +63,7 @@ const HomePage: React.FC = () => {
           <Image
             src="https://res.cloudinary.com/diylksocz/image/upload/v1665768546/57671_uu8wca_019609-removebg-preview_cuhxef_1_lek1xt.png"
             position="relative"
+            justifySelf="center"
             zIndex={50}
             w="450px"
             top="100px"

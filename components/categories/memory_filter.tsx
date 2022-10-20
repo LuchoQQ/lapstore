@@ -31,7 +31,7 @@ const Memory_filter: React.FC<Props> = ({ products, onChange }) => {
 
   return (
     <>
-      <Flex id="ram" flexDir="column" p="1rem" border="1px solid black">
+      <Flex id="ram" flexDir="column" p="1rem" border="1px solid black" bg='#fff' rounded='20px'>
         <Text mb="1rem">Memoria RAM</Text>
         {memories_filter.map((memory) => {
           return (

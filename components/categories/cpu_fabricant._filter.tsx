@@ -34,7 +34,7 @@ const Cpu_fabricant_filter: React.FC<Props> = ({ products, onChange }) => {
 
   return (
     <>
-      <Flex flexDir="column" p="1rem" border="1px solid black">
+      <Flex flexDir="column" p="1rem" border="1px solid black" bg='#fff' rounded='20px'>
         <Text mb="1rem">Procesador</Text>
         {Cpu_fabricant.map((fabricant, index) => {
           return (

@@ -31,7 +31,7 @@ const Graphics_filter: React.FC<Props> = ({ products, onChange }) => {
   };
   return (
     <>
-      <Flex id="ram" flexDir="column" p="1rem" border="1px solid black">
+      <Flex id="ram" flexDir="column" p="1rem" border="1px solid black" bg='#fff' rounded='20px'>
         {graphics_filter.map((graphics, index) => {
           return (
             <>

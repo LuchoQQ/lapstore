@@ -35,7 +35,7 @@ const Price_filter: React.FC<Props> = ({ onChange }) => {
   return (
     <>
     
-      <Flex id="price" flexDir="column" p="1rem" border="1px solid black">
+      <Flex id="price" flexDir="column" p="1rem" border="1px solid black" bg='#fff' rounded='20px'>
         <Text>Price Rango</Text>
         <Grid mt="1rem">
           <Box>
