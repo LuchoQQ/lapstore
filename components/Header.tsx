@@ -38,6 +38,7 @@ const Header: React.FC = () => {
     Shop: "/shop",
     About: "/about",
     Contact: "/contact",
+    Backoffice: "/backoffice",
   };
 
   const theme = useTheme();
@@ -128,7 +129,7 @@ const Header: React.FC = () => {
           as={FaBars}
           onClick={() => setMobileMenu(!mobileMenu)}
           position="relative"
-          display={['block', 'block', 'none', 'none', 'none']}
+          display={["block", "block", "none", "none", "none"]}
         />
         <Flex
           w="100vw"
@@ -141,7 +142,15 @@ const Header: React.FC = () => {
         >
           <Flex flexDir="column" h="90vh" justifyContent="center" gap="3rem">
             {Object.entries(links).map((props, index) => {
-              return <NavLink path={props[1]} name={props[0]} key={index} handleClick={() => setMobileMenu(false)} mobileMenu={mobileMenu}/>;
+              return (
+                <NavLink
+                  path={props[1]}
+                  name={props[0]}
+                  key={index}
+                  handleClick={() => setMobileMenu(false)}
+                  mobileMenu={mobileMenu}
+                />
+              );
             })}
             <Flex alignSelf="center">
               <Icon

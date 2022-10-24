@@ -1,6 +1,5 @@
 import { Box, Flex, Grid, Icon, Text, useTheme } from "@chakra-ui/react";
 import type { NextPage, GetStaticProps } from "next";
-import api from "../api";
 import type { Product, Filter } from "../types";
 import ProductCard from "../components/ProductCard";
 import { useMemo, useState } from "react";
@@ -16,18 +15,19 @@ type Props = {
   products: Product[];
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const products = await api.product.list();
+export const getStaticProps: GetStaticProps = async () => {
+  const products = await fetch('http://localhost:4000/products')
+
   return {
     props: {
-      products,
-    },
+      products: await products.json(),
+    }
   };
 };
 
-const Home: NextPage<Props> = ({ products }) => {
+const Home: NextPage<Props> = ({products}) => {
+  console.log(products)
   const [isModalOpen, setModalOpen] = useState(false);
-
   const [mobileFilters, setMobileFilters] = useState(false);
   const [data, setData] = useState<Product>({
     id: 0,
@@ -99,7 +99,7 @@ const Home: NextPage<Props> = ({ products }) => {
         bg="#f3f4f5"
         justifyContent="center"
       >
-        <Flex
+        {/* <Flex
           bg="#f3f4f5"
           position={[
             "absolute",
@@ -160,7 +160,7 @@ const Home: NextPage<Props> = ({ products }) => {
               }))
             }
           />
-        </Flex>
+        </Flex> */}
 
         <Grid
           mt="1rem"

@@ -1,9 +1,8 @@
-import { m } from 'framer-motion';
 import type { Product } from './types'
 const PRODUCTS: Product[] = [
     {
         id: 1,
-        title: "NOTEBOOK DELL 15.6 LATITUDE 3520 I5-1135G7 8GB 256GB W10H",
+        name: "NOTEBOOK DELL 15.6 LATITUDE 3520 I5-1135G7 8GB 256GB W10H",
         price: 243640,
         trademark: 'Dell',
         image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665541928/lapstore/notebook-dell-156-latitude-3520-i51135g7-8gb-256gb-w10h-0_o7jmwp.jpg',
@@ -18,7 +17,7 @@ const PRODUCTS: Product[] = [
     },
     {
         id: 2,
-        title: "NOTEBOOK LENOVO 15.6 THINKPAD E15 RYZEN 5 5500U 8GB 256GB F",
+        name: "NOTEBOOK LENOVO 15.6 THINKPAD E15 RYZEN 5 5500U 8GB 256GB F",
         price: 209360,
         trademark: 'Lenovo',
         image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665547700/lapstore/notebook-lenovo-156-thinkpad-e15-ryzen-5-5500u-8gb-256gb-f-0_d2gjmn.jpg',
@@ -34,7 +33,7 @@ const PRODUCTS: Product[] = [
     },
     {
         id: 3,
-        title: "NOTEBOOK HP 15.6 250 G8 I7-1165G7 8GB 512GB FREE",
+        name: "NOTEBOOK HP 15.6 250 G8 I7-1165G7 8GB 512GB FREE",
         price: 207150,
         trademark: 'HP',
         image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665548022/lapstore/notebook-hp-156-250-g8-i71165g7-8gb-512gb-free-0_iz0kyz.jpg',
@@ -50,7 +49,7 @@ const PRODUCTS: Product[] = [
     },
     {
         id: 4,
-        title: "NOTEBOOK LENOVO 15.6 V15 I5-1135G7 8GB 256GB FREE",
+        name: "NOTEBOOK LENOVO 15.6 V15 I5-1135G7 8GB 256GB FREE",
         price: 175300,
         image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665548588/lapstore/notebook-lenovo-156-v15-i51135g7-8gb-256gb-free-0_ue1knf.jpg',
         cpu_fabricant: "Intel",
@@ -66,7 +65,7 @@ const PRODUCTS: Product[] = [
     },
     {
         id: 5,
-        title: 'NOTEBOOK LENOVO 14" V14 RYZEN 3 3250U 8GB 256GB FREE',
+        name: 'NOTEBOOK LENOVO 14" V14 RYZEN 3 3250U 8GB 256GB FREE',
         price: 192568,
         image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665548753/lapstore/notebook-lenovo-14-v14-ryzen-3-3250u-8gb-256gb-free-0_vixfkn.jpg',
         cpu_fabricant: 'AMD',
@@ -82,7 +81,7 @@ const PRODUCTS: Product[] = [
     },
     {
         id: 6,
-        title: 'NOTEBOOK HP 14" ZBOOK FIREFLY G8 I7-1165G7 16GB 512GB W10P',
+        name: 'NOTEBOOK HP 14" ZBOOK FIREFLY G8 I7-1165G7 16GB 512GB W10P',
         price: 449160,
         image: 'https://res.cloudinary.com/diylksocz/image/upload/v1665596416/lapstore/notebook-hp-14-zbook-firefly-g8-i71165g7-16gb-512gb-w10p-0_cffusr.jpg',
         cpu_fabricant: 'Intel',
@@ -94,8 +93,6 @@ const PRODUCTS: Product[] = [
         memory_description: '1x16 DDR4 2666 MHz',
         screen: '14',
         quantity: 0
-
-
     }
 
 ]
