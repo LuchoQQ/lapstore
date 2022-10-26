@@ -26,12 +26,11 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const Home: NextPage<Props> = ({products}) => {
-  console.log(products)
   const [isModalOpen, setModalOpen] = useState(false);
   const [mobileFilters, setMobileFilters] = useState(false);
   const [data, setData] = useState<Product>({
     id: 0,
-    title: "",
+    name: "",
     price: 0,
     trademark: "",
     image: "",

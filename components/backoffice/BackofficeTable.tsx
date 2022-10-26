@@ -23,7 +23,6 @@ type Props = {
 const BackofficeTable: React.FC<Props> = (props) => {
   const products = props.products;
   const keys = Object.values(products[0]);
-  console.log(keys);
   return (
     <>
       <TableContainer>

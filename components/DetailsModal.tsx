@@ -23,6 +23,7 @@ type Props = {
 
 const DetailsModal: React.FC<Props> = ({ data, isModalOpen, setModalOpen }) => {
   const theme = useTheme();
+  console.log(data)
   return (
     <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
       <ModalOverlay />
@@ -31,7 +32,7 @@ const DetailsModal: React.FC<Props> = ({ data, isModalOpen, setModalOpen }) => {
         <ModalCloseButton />
         <ModalBody fontFamily={theme.fonts.primary} fontSize="md">
           <Image src={data?.image} />
-          <Text mb="1rem">{data?.title}</Text>
+          <Text mb="1rem">{data?.name}</Text>
           <Text>{`Marca: ${data?.trademark}`}</Text>
           <Text>{`CPU: ${data?.processor}`}</Text>
           <Text>{`Grafica: ${data?.graphics}`}</Text>

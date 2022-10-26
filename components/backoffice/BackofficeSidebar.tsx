@@ -23,7 +23,7 @@ const BackofficeSidebar: React.FC<Props> = ({ setBackoffice, backoffice }) => {
   return (
     <>
       <Flex
-        minW={width * (15 / 100)}
+        minW={width * (17 / 100)}
         maxW="300px"
         minH="100vh"
         pt="5vh"

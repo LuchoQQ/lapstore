@@ -2,7 +2,6 @@ import {
   Flex,
   Grid,
   Text,
-  Image,
   Badge,
   Box,
   Icon,
@@ -13,6 +12,7 @@ import { Product } from "../types";
 import { BsCart4 } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { addToCartQuantity } from "../redux/reducers/cartSlice";
+import Image from "next/image";
 
 type Props = {
   product: Product;
@@ -23,13 +23,13 @@ type Props = {
 const ProductCard: React.FC<Props> = ({ product, setModalOpen, setData }) => {
   const theme = useTheme();
   const dispatch = useDispatch();
-
+  const SERVER_BASE_URL = process.env.SERVER_BASE_URL
   return (
     <>
       <Grid flexDir="column" p=".5rem" maxW="250px" bg="#fff" maxH="500px">
-        <Image src={product.image} />
+        <Image src={`http://localhost:4000/products/image/${product.image}`} width='250px' height='250px' alt='product' />
         <Flex></Flex>
-        <Text>{product.title}</Text>
+        <Text>{product.name}</Text>
         <Text fontSize="xl">{`$${product.price}0,00`}</Text>
         <Grid gap="0.5rem" mt="0.5rem">
           <Flex justifyContent="center">
