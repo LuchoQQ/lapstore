@@ -43,7 +43,7 @@ const Memory_filter: React.FC<Props> = ({ products, onChange }) => {
                   value={memory}
                   onChange={(e) => handleChange(memory, e.target.checked)}
                 />
-                <Text fontSize="sm">{memory}</Text>
+                <Text fontSize="sm">{`${memory}GB`}</Text>
               </Flex>
             </>
           );

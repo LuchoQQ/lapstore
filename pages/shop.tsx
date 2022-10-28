@@ -98,7 +98,7 @@ const Home: NextPage<Props> = ({products}) => {
         bg="#f3f4f5"
         justifyContent="center"
       >
-        {/* <Flex
+        <Flex
           bg="#f3f4f5"
           position={[
             "absolute",
@@ -107,6 +107,7 @@ const Home: NextPage<Props> = ({products}) => {
             "relative",
             "relative",
           ]}
+          zIndex='100'
           transition="all 0.4s ease"
           left={[
             mobileFilters ? "0" : "-100vw",
@@ -159,7 +160,7 @@ const Home: NextPage<Props> = ({products}) => {
               }))
             }
           />
-        </Flex> */}
+        </Flex>
 
         <Grid
           mt="1rem"
