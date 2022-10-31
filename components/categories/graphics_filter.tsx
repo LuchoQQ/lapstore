@@ -36,7 +36,6 @@ const Graphics_filter: React.FC<Props> = ({ products, onChange }) => {
 
         {graphics_filter.map((graphics, index) => {
           return (
-            <>
               <Flex alignItems="center"  key={index} gap=".5rem">
                 <Checkbox
                   type="checkbox"
@@ -46,7 +45,6 @@ const Graphics_filter: React.FC<Props> = ({ products, onChange }) => {
                 />
                 <Text fontSize="sm">{graphics}</Text>
               </Flex>
-            </>
           );
         })}
       </Flex>

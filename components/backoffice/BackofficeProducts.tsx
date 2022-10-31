@@ -65,11 +65,10 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                         });
                     }
                 })
-                .then((res) => console.log(res));
         } catch (error) {
             console.log(error);
         }
-    };
+    }
 
     return (
         <>
@@ -119,7 +118,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                             isSubmitting,
                         }) => (
                             <Container>
-                                <FormControl as="form" onSubmit={handleSubmit}>
+                                <FormControl as="form">
                                     <Grid alignContent="center" gap="2rem">
                                         <Box>
                                             <FormLabel fontSize="xl">

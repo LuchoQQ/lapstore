@@ -9,7 +9,6 @@ import Graphics_filter from "../components/categories/graphics_filter";
 import Trademark_filter from "../components/categories/trademark_filter";
 import Price_filter from "../components/categories/price_filter";
 import DetailsModal from "../components/DetailsModal";
-import { BsFilterSquare } from "react-icons/bs";
 import { IoAdd } from "react-icons/io5";
 type Props = {
   products: Product[];

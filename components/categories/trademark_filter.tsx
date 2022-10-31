@@ -35,7 +35,6 @@ const Trademark_filter: React.FC<Props> = ({ products, onChange }) => {
         <Text mb='1rem'>Marca</Text>
         {trademark_filter.map((trademark, index) => {
           return (
-            <>
               <Flex alignItems="center" gap=".5rem" key={index}>
                 <Checkbox
                   type="checkbox"
@@ -45,7 +44,6 @@ const Trademark_filter: React.FC<Props> = ({ products, onChange }) => {
                 />
                 <Text fontSize="sm">{trademark}</Text>
               </Flex>
-            </>
           )
         })}
       </Flex>
