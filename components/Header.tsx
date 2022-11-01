@@ -37,8 +37,8 @@ const Header: React.FC = () => {
     Inicio: "/",
     Shop: "/shop",
     About: "/about",
-    Contact: "/contact",
     Backoffice: "/backoffice",
+    User: "/user"
   };
 
   const theme = useTheme();
