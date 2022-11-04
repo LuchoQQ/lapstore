@@ -19,6 +19,7 @@ import {
 import { ErrorMessage, Formik } from "formik";
 import React, { useState } from "react";
 import * as Yup from "yup";
+import RegisterForm from "../components/RegisterForm";
 import SignInForm from "../components/SignInForm";
 
 const User: React.FC = () => {
@@ -43,7 +44,7 @@ const User: React.FC = () => {
                 >
                     <Tabs w='100%'>
                         <TabList>
-                            <Tab>Login</Tab>
+                            <Tab><Text>Login</Text></Tab>
                             <Tab>Register</Tab>
                         </TabList>
 
@@ -52,7 +53,7 @@ const User: React.FC = () => {
                                 <SignInForm />
                             </TabPanel>
                             <TabPanel>
-                                <p>two!</p>
+                                <RegisterForm />
                             </TabPanel>
 
                         </TabPanels>

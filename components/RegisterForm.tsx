@@ -1,50 +1,37 @@
+import React from "react";
+import { ErrorMessage, Formik } from "formik";
+import * as Yup from "yup";
 import {
     Box,
     Button,
     Container,
-    FormControl,
     FormLabel,
     Grid,
     Input,
     Text,
 } from "@chakra-ui/react";
-import { ErrorMessage, Formik } from "formik";
-import * as Yup from "yup";
-import React from "react";
-import axios from "axios";
 
-const SignInForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
     const validationSchema = Yup.object().shape({
         email: Yup.string().email("Invalid email").required("Required"),
         password: Yup.string()
             .min(7, "The password must have at least 7 characters")
             .required("Required"),
     });
-
-    const postUser = async (values: any) => {
-        console.log(values)
-        try {
-            const response = await axios
-                .post(`http://${process.env.SERVER_BASE_URL}/users`, values)
-                .then((res) => {
-                    console.log(res);
-                });
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
     return (
         <>
             <Formik
                 initialValues={{
+                    name: "",
+                    surname: "",
                     email: "",
                     password: "",
                 }}
                 validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
                     setSubmitting(true);
-                    postUser(values);
+                    console.log(values);
+                    
                 }}
             >
                 {({
@@ -66,7 +53,39 @@ const SignInForm: React.FC = () => {
                         <form onSubmit={handleSubmit}>
                             <Grid alignContent="center" gap="2rem">
                                 <Box>
-                                    <FormLabel fontSize="xl">Email</FormLabel>
+                                    <FormLabel fontSize="lg">Nombre</FormLabel>
+                                    <Input
+                                        size="sm"
+                                        type="name"
+                                        name="name"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.name}
+                                    />
+                                    <ErrorMessage name="email" component="div">
+                                        {(msg) => (
+                                            <Text color="red">{msg}</Text>
+                                        )}
+                                    </ErrorMessage>
+                                </Box>
+                                <Box>
+                                    <FormLabel fontSize="lg">Apellido</FormLabel>
+                                    <Input
+                                        size="sm"
+                                        type="surname"
+                                        name="surname"
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
+                                        value={values.surname}
+                                    />
+                                    <ErrorMessage name="email" component="div">
+                                        {(msg) => (
+                                            <Text color="red">{msg}</Text>
+                                        )}
+                                    </ErrorMessage>
+                                </Box>
+                                <Box>
+                                    <FormLabel fontSize="lg">Email</FormLabel>
                                     <Input
                                         size="sm"
                                         type="email"
@@ -82,7 +101,7 @@ const SignInForm: React.FC = () => {
                                     </ErrorMessage>
                                 </Box>
                                 <Box>
-                                    <FormLabel fontSize="xl">
+                                    <FormLabel fontSize="lg">
                                         Password
                                     </FormLabel>
                                     <Input
@@ -102,6 +121,7 @@ const SignInForm: React.FC = () => {
                                         )}
                                     </ErrorMessage>
                                 </Box>
+                                
                                 <Button type="submit" isLoading={isSubmitting}>
                                     Submit
                                 </Button>
@@ -114,4 +134,4 @@ const SignInForm: React.FC = () => {
     );
 };
 
-export default SignInForm;
+export default RegisterForm;
