@@ -7,13 +7,19 @@ import {
     Grid,
     Input,
     Text,
+    Toast,
+    useToast,
 } from "@chakra-ui/react";
 import { ErrorMessage, Formik } from "formik";
 import * as Yup from "yup";
 import React from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 const SignInForm: React.FC = () => {
+    const toast = useToast();
+
+    const dispatch = useDispatch();
     const validationSchema = Yup.object().shape({
         email: Yup.string().email("Invalid email").required("Required"),
         password: Yup.string()
@@ -21,16 +27,38 @@ const SignInForm: React.FC = () => {
             .required("Required"),
     });
 
-    const postUser = async (values: any) => {
-        console.log(values)
+    const validateUser = async (values: any) => {
         try {
             const response = await axios
-                .post(`http://${process.env.SERVER_BASE_URL}/users`, values)
+                .post(
+                    `http://${process.env.SERVER_BASE_URL}/users/validate`,
+                    values
+                )
                 .then((res) => {
-                    console.log(res);
+                    toast({
+                        title: "Ingresaste exitosamente!",
+                        status: "success",
+                        isClosable: true,
+                        duration: 3000,
+                    });
+                    if (res.data.status === "ok") {
+                        dispatch({
+                            type: "SET_USER",
+                            payload: {
+                                user: res.data.name,
+                                token: res.data.token,
+                            },
+                        });
+                        localStorage.setItem("token", res.data.token);
+                    }
                 });
         } catch (error) {
-            console.log(error);
+            toast({
+                title: "El correo o la contraseña son incorrectos",
+                status: "error",
+                isClosable: true,
+                duration: 3000,
+            });
         }
     };
 
@@ -44,7 +72,7 @@ const SignInForm: React.FC = () => {
                 validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
                     setSubmitting(true);
-                    postUser(values);
+                    validateUser(values).then(() => setSubmitting(false));
                 }}
             >
                 {({
