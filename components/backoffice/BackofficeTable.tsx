@@ -67,7 +67,7 @@ const BackofficeTable: React.FC<Props> = (props) => {
                     </Thead>
                     <Tbody>
                         <Tr></Tr>
-                        {products.map((product: any) => {
+                        {products.map((product: Product) => {
                             return (
                                 <Tr>
                                     <Td>{product.name}</Td>

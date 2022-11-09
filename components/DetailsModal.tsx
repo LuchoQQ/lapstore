@@ -23,7 +23,6 @@ type Props = {
 
 const DetailsModal: React.FC<Props> = ({ data, isModalOpen, setModalOpen }) => {
   const theme = useTheme();
-  console.log(data)
   return (
     <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
       <ModalOverlay />

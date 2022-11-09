@@ -1,5 +1,5 @@
 export type Product = {
-    id: number,
+    _id: string,
     name: string,
     price: number,
     image: string,
@@ -12,6 +12,13 @@ export type Product = {
     memory_description: string
     screen: string
     quantity: number
+}
+
+export type User = {
+    id: number,
+    name: string,
+    email: string,
+    role: string
 }
 
 

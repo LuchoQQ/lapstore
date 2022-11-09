@@ -27,7 +27,7 @@ const Header: React.FC = () => {
 
     const theme = useTheme();
     const router = useRouter();
-    const cart = useSelector(selectCart);
+    const cart = useSelector(selectCart)
 
     const dispatch = useDispatch();
     const totalItems = cart.reduce((acc, item) => {
@@ -42,7 +42,6 @@ const Header: React.FC = () => {
                 },
             })
             .then((res) => {
-                console.log(res.data)
                 dispatch(
                     login({
                         name: res.data.name,
@@ -64,7 +63,6 @@ const Header: React.FC = () => {
         }
     }, []);
     const user = useSelector((state: any) => state.user);
-    console.log(user)
     return (
         <>
             <CartDrawer
@@ -99,7 +97,9 @@ const Header: React.FC = () => {
                             />
                         );
                     })}
-                <Text>Back</Text>
+                {
+                    user.role === "admin" && <NavLink path="/backoffice" name="Backoffice" /> 
+                }
                 
                 </Flex>
                 <Flex
