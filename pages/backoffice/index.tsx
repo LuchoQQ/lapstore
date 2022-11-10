@@ -5,7 +5,9 @@ import type { NextPage, GetStaticProps } from "next";
 import { Product, User } from "../../types";
 import BackofficeSidebar from "../../components/backoffice/BackofficeSidebar";
 import BackofficeProducts from "../../components/backoffice/BackofficeProducts";
-import BackofficeCustomers from "../../components/backoffice/BackofficeCustomers";
+import BackofficeCustomers from "../../components/backoffice/BackofficeUsers";
+import BackofficeUsers from "../../components/backoffice/BackofficeUsers";
+import BackofficeDashboard from "../../components/backoffice/BackofficeDashboard";
 
 export const getStaticProps: GetStaticProps = async () => {
   const products = await fetch("http://localhost:4000/products");
@@ -26,24 +28,23 @@ type Props = {
 const Backoffice: React.FC<Props> = ({ products, users }) => {
   const theme = useTheme();
   const [width, setWidth] = React.useState(0);
-  const [backoffice, setBackoffice] = React.useState("/products");
+  const [backoffice, setBackoffice] = React.useState("/dashboard");
   React.useEffect(() => {
     setWidth(window.innerWidth);
   });
   return (
     <>
-      <Flex pt="4.5rem" bg="#f3f4f5" gap="1rem" justifyContent="center">
+      <Flex pt="3.5rem"  gap="1rem" justifyContent="center" bg='#f0dfea'>
         <BackofficeSidebar
           setBackoffice={setBackoffice}
           backoffice={backoffice}
-        />
-        <Flex minW={width * (80 / 100)} flexDir="column" bg="#fff">
-          <Box w="100%" h="10rem" bg="#f3f4f5"></Box>
+        />  
+        <Flex minW={width * (80 / 100)} flexDir="column" mt='1rem'>
 
 
-          
+          {backoffice === '/dashboard' && <BackofficeDashboard />}
           {backoffice === "/products" && <BackofficeProducts products={products} /> }
-          {backoffice === "/customers" && <BackofficeCustomers data={users} />}
+          {backoffice === "/users" && <BackofficeUsers data={users} />}
         </Flex>
       </Flex>
     </>

@@ -6,7 +6,7 @@ type Props = {
     data: User[];
 };
 
-const BackofficeCustomers: React.FC<Props> = ({data}) => {
+const BackofficeUsers: React.FC<Props> = ({data}) => {
     return (
         <>
             <Table users={data} />
@@ -14,4 +14,4 @@ const BackofficeCustomers: React.FC<Props> = ({data}) => {
     );
 };
 
-export default BackofficeCustomers;
+export default BackofficeUsers;

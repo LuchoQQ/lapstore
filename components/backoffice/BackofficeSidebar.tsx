@@ -37,7 +37,7 @@ const BackofficeSidebar: React.FC<Props> = ({ setBackoffice, backoffice }) => {
           <BackofficeNavItem
             name="Dashboard"
             icon={RiDashboard2Line}
-            path="/backoffice"
+            path="/dashboard"
             setBackoffice={setBackoffice}
             backoffice={backoffice}
           />
@@ -45,13 +45,6 @@ const BackofficeSidebar: React.FC<Props> = ({ setBackoffice, backoffice }) => {
             name="Users"
             icon={ImUsers}
             path="/users"
-            setBackoffice={setBackoffice}
-            backoffice={backoffice}
-          />
-          <BackofficeNavItem
-            name="Customers"
-            icon={IoMdBusiness}
-            path="/customers"
             setBackoffice={setBackoffice}
             backoffice={backoffice}
           />

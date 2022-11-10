@@ -1,4 +1,4 @@
-import { Icon, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
+import { Icon, TableContainer, Tbody, Td, Th, Thead, Tr, Table as ChakraTable } from "@chakra-ui/react";
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdOpenInNew, MdOutlineDelete } from "react-icons/md";
@@ -11,18 +11,17 @@ type Props = {
 
 
 const Table: React.FC<Props> = (props) => {
-    const users = props.users;
-    console.log(typeof users)
+    const { users } = props;
     return (
         <>
             <TableContainer>
-                <Table>
+                <ChakraTable>
                     <Thead>
                         <Tr>
                             <Th>Name</Th>
-                            <Th>Price</Th>
-                            <Th>Trademark</Th>
-                            <Th>Processor</Th>
+                            <Th>Surname</Th>
+                            <Th>Email</Th>
+                            <Th>Role</Th>
                             <Th>Ver</Th>
                             <Th>Edit</Th>
                             <Th>Delete</Th>
@@ -30,10 +29,12 @@ const Table: React.FC<Props> = (props) => {
                     </Thead>
                     <Tbody>
                         <Tr></Tr>
-                        {/* {users.map((user: User) => {
+                        {users.map((user: User, index) => {
                             return (
-                                <Tr>
+                                <Tr key={index}>
                                     <Td>{user.name}</Td>
+                                    <Td>{user.surname}</Td>
+                                    <Td>{user.email}</Td>
                                     <Td>{user.role}</Td>
                                     <Td>
                                         <Icon as={MdOpenInNew} fontSize="xl" />
@@ -52,9 +53,9 @@ const Table: React.FC<Props> = (props) => {
                                     </Td>
                                 </Tr>
                             );
-                        })} */}
+                        })}
                     </Tbody>
-                    </Table>
+                    </ChakraTable>
             </TableContainer>
         </>
     );
