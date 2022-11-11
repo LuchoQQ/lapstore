@@ -52,7 +52,7 @@ const BackofficeTable: React.FC<Props> = (props) => {
     };
     return (
         <>
-            <TableContainer>
+            <TableContainer bg='#f3f4f5'>
                 <Table variant="simple" size="sm">
                     <Thead>
                         <Tr>

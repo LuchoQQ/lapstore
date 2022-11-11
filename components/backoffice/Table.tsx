@@ -14,7 +14,7 @@ const Table: React.FC<Props> = (props) => {
     const { users } = props;
     return (
         <>
-            <TableContainer>
+            <TableContainer bg='#f3f4f5'>
                 <ChakraTable>
                     <Thead>
                         <Tr>

@@ -34,7 +34,7 @@ const Backoffice: React.FC<Props> = ({ products, users }) => {
   });
   return (
     <>
-      <Flex pt="3.5rem"  gap="1rem" justifyContent="center" bg='#f0dfea'>
+      <Flex pt="3.5rem"  gap="1rem" justifyContent="center" bg={theme.colors.background}>
         <BackofficeSidebar
           setBackoffice={setBackoffice}
           backoffice={backoffice}
