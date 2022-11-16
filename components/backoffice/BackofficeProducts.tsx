@@ -64,12 +64,11 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                             isClosable: true,
                         });
                     }
-                })
+                });
         } catch (error) {
             console.log(error);
         }
-    }
-    
+    };
 
     return (
         <>
@@ -110,7 +109,6 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                             quantity: "",
                         }}
                         onSubmit={(values, e) => onSubmit(values, e)}
-                        
                     >
                         {({
                             values,
@@ -119,7 +117,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                             handleSubmit,
                             isSubmitting,
                         }) => (
-                            <Container bg='#fff ' p='1rem' borderRadius='20px'>
+                            <Container bg="#fff " p="1rem" borderRadius="20px">
                                 <FormControl as="form">
                                     <Grid alignContent="center" gap="2rem">
                                         <Box>
@@ -274,7 +272,13 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                                             />
                                         </Box>
 
-                                        <Button onClick={(e) => handleSubmit(e, values)}>Submit</Button>
+                                        <Button
+                                            onClick={(e) =>
+                                                handleSubmit(e)
+                                            }
+                                        >
+                                            Submit
+                                        </Button>
                                     </Grid>
                                 </FormControl>
                             </Container>

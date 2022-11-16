@@ -10,31 +10,30 @@ const cartSlice = createSlice({
     reducers: {
         addToCartQuantity: (state, action) => {
             //add to cart or increase quantity of product in cart
-            const product = state.find(product => product.id === action.payload.id);
-            if (product) {
-                product.quantity += action.payload.quantity;
+            const product = action.payload;
+            if (state.some((item) => item.name === action.payload.name)) {
+                const productIndex = state.findIndex(
+                    (item) => item.name === product.name
+                );
+                state[productIndex].quantity += 1;
             } else {
-                state.push(action.payload);
+                state.push(product);
             }
+            
         },
         deleteToCartQuantity: (state, action) => {
-            //delete or decrease of product in cart
-            const product = state.find(product => product.id === action.payload.id);
-            if (product) {
-                if (product.quantity > 1) {
-                    product.quantity -= 1
+            //delete to cart or decrease quantity of product in cart
+            const product = action.payload;
+            if (state.some((item) => item.name === action.payload.name)) {
+                const productIndex = state.findIndex(
+                    (item) => item.name === product.name
+                );
+                if (state[productIndex].quantity > 1) {
+                    state[productIndex].quantity -= 1;
                 } else {
-                    state.splice(state.indexOf(product), 1);
+                    state.splice(productIndex, 1);
                 }
             }
-            /* const product = state.find(product => product.id === action.payload.id);
-            if (product) {
-                if (product.quantity > 1) {
-                    product.quantity -= action.payload.quantity;
-                } else {
-                    state.splice(state.indexOf(product), 1);
-                }
-            } */
 
         },
         clearCart: (state) => {

@@ -54,7 +54,7 @@ const BackofficeDashboardItem: React.FC<Props> = ({
                     <Text
                         fontFamily={theme.fonts.primary}
                         fontSize="sm"
-                        color={theme.colors.background}
+                        color="#b8b5e4"
                     >
                         {title}
                     </Text>

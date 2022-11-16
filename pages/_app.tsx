@@ -1,9 +1,9 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import "../styles/global.css";
-import "@fontsource/merriweather-sans";
-import "@fontsource/poppins/600.css";
-import "@fontsource/roboto/500.css";
+import "@fontsource/merriweather-sans/400.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/roboto/700.css";
 import Header from "../components/Header";
 import { Provider, useDispatch } from "react-redux";
 import store from "../redux/index";
@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
         colors: {
             primary: "#F33464",
-            secondary: "#33C2F2",
+            secondary: "#9fbded",
             background: "#c8d6ed",
         },
     });

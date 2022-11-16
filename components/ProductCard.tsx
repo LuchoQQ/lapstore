@@ -39,7 +39,7 @@ const ProductCard: React.FC<Props> = ({ product, setModalOpen, setData }) => {
       <Grid flexDir="column" p=".5rem" maxW="250px" bg="#fff" maxH="500px">
         <Image src={`http://localhost:4000/products/image/${product.image}`} width='250px' height='250px' alt='product' priority />
         <Flex></Flex>
-        <Text>{product.name}</Text>
+        <Text>{`${product.name} ${product.processor}`}</Text>
         <Text fontSize="xl">{`$${product.price}0,00`}</Text>
         <Grid gap="0.5rem" mt="0.5rem">
           <Flex justifyContent="center">

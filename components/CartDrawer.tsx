@@ -38,7 +38,7 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
   const cartItem: any = [];
   const wppReturn = cart.map((item) => {
     cartItem.push(
-      item.title + " - " + item.price + "ARS" + " x " + item.quantity
+      item.name + " - " + item.price + "ARS" + " x " + item.quantity
     );
   });
   const totalItems = cart.reduce((acc, item) => {
@@ -69,13 +69,11 @@ const CartDrawer: React.FC<Props> = ({ isDrawerOpen, setDrawerOpen }) => {
                 >
                   <Flex fontSize="md">
                     x{item.quantity}
-                    <Image src={item.image} w="100px" mr="auto" />
+                    <Image src={`http://${process.env.SERVER_BASE_URL}/products/image/${item.image}`} w="100px" mr="auto" />
                     <Grid>
-                      <Text fontSize="sm">{`${item.title.split(" ")[0]} ${
-                        item.title.split(" ")[1]
-                      } ${item.title.split(" ")[3]} ${
-                        item.title.split(" ")[4]
-                      }`}</Text>
+                      <Text fontSize="sm">{`${item.name.split(" ")[0]} ${
+                        item.name.split(" ")[1]
+                      } ${item.name.split(" ")[3]}`}</Text>
                       <Text fontSize="sm">{`$${item.price}`}</Text>
                     </Grid>
                     <Icon

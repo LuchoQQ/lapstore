@@ -20,9 +20,9 @@ const Header: React.FC = () => {
     const [isDrawerOpen, setDrawerOpen] = React.useState(false);
     const [mobileMenu, setMobileMenu] = React.useState(false);
     const links = {
-        Inicio: "/",
-        Shop: "/shop",
-        About: "/about",
+        INICIO: "/",
+        SHOP: "/shop",
+        ABOUT: "/about",
     };
 
     const theme = useTheme();
@@ -79,8 +79,9 @@ const Header: React.FC = () => {
                 py="1rem"
                 boxShadow="0px 0px 5px 5px rgba(0,0,0,0.1)"
                 position="fixed"
-                justifyContent="center"
+                justifyContent="end"
                 zIndex={1000}
+                gap='20%'
             >
                 <Flex
                     gap="1rem"
@@ -98,12 +99,11 @@ const Header: React.FC = () => {
                         );
                     })}
                 {
-                    user.role === "admin" && <NavLink path="/backoffice" name="Backoffice" /> 
+                    user.role === "admin" && <NavLink path="/backoffice" name="BACKOFFICE" /> 
                 }
                 
                 </Flex>
                 <Flex
-                    ml="auto"
                     gap="2rem"
                     display={["none", "none", "flex", "flex", "flex"]}
                 >
