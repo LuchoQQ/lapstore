@@ -5,6 +5,7 @@ import { FaHandHoldingUsd, FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoLogoUsd } from "react-icons/io";
 import BackofficeDashboardItem from "./BackofficeDashboardItem";
 import dynamic from "next/dynamic";
+import { AiOutlineCalendar } from "react-icons/ai";
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const BackofficeDashboard: React.FC = () => {
@@ -81,20 +82,31 @@ const BackofficeDashboard: React.FC = () => {
                     subtitle="1520"
                 />
             </Grid>
-            <Flex bg="#fff" mt="1rem" borderRadius="20px" flexDir="column">
-                <Flex>
-                    <Grid justifyContent="center" px="1rem" py="1rem">
-                        <Text
-                            fontFamily={theme.fonts.secondary}
-                            fontSize="2xl"
-                            px="1rem"
-                        >
-                            Sells by Month
-                        </Text>
+            <Flex mt="1rem" flexDir="column" gap="1rem">
+                <Flex
+                    bg="#fff"
+                    borderRadius="20px"
+                    justifyContent="space-around"
+                >
+                    <Grid py="1rem">
+                        <Flex px="1rem">
+                            <Icon
+                                as={AiOutlineCalendar}
+                                alignSelf="center"
+                                fontSize="2xl"
+                            />
+                            <Text
+                                fontFamily={theme.fonts.secondary}
+                                fontSize="2xl"
+                                px=".5rem"
+                            >
+                                Sells by Month
+                            </Text>
+                        </Flex>
                         <Chart
                             options={options}
                             series={series}
-                            type="bar"
+                            type="line"
                             width="400"
                         />
                     </Grid>
@@ -115,7 +127,11 @@ const BackofficeDashboard: React.FC = () => {
                     </Grid>
                 </Flex>
 
-                <Flex>
+                <Flex
+                    bg="#fff"
+                    borderRadius="20px"
+                    justifyContent="space-around"
+                >
                     <Grid justifyContent="center" px="1rem" py="1rem">
                         <Text
                             fontFamily={theme.fonts.secondary}

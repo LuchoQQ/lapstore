@@ -34,7 +34,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
         setFile(file);
     };
 
-    const onSubmit = async (values: any, { setSubmitting }: any) => {
+    const onSubmit = async (values: any, e: any) => {
         try {
             console.log(values);
             values.image = file;
@@ -69,6 +69,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
             console.log(error);
         }
     }
+    
 
     return (
         <>
@@ -108,7 +109,8 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                             screen: "",
                             quantity: "",
                         }}
-                        onSubmit={onSubmit}
+                        onSubmit={(values, e) => onSubmit(values, e)}
+                        
                     >
                         {({
                             values,
@@ -117,7 +119,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                             handleSubmit,
                             isSubmitting,
                         }) => (
-                            <Container>
+                            <Container bg='#fff ' p='1rem' borderRadius='20px'>
                                 <FormControl as="form">
                                     <Grid alignContent="center" gap="2rem">
                                         <Box>
@@ -220,7 +222,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
 
                                         <Box>
                                             <FormLabel fontSize="xl">
-                                                memory
+                                                Memory
                                             </FormLabel>
                                             <Input
                                                 type="text"
@@ -272,7 +274,7 @@ const BackofficeProducts: React.FC<Props> = ({ products }) => {
                                             />
                                         </Box>
 
-                                        <Button type="submit">Submit</Button>
+                                        <Button onClick={(e) => handleSubmit(e, values)}>Submit</Button>
                                     </Grid>
                                 </FormControl>
                             </Container>

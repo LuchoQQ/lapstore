@@ -24,6 +24,7 @@ const BackofficeNavItem: React.FC<Props> = ({
   return (
     <>
       <Flex
+      cursor='pointer'
         alignItems="center"
         px="2rem"
         gap="1rem"
